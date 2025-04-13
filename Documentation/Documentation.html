@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<title>Documentation - DIU-Insurance</title>
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+<style type="text/css" media="screen">
+body {
+font-family: segoe ui;
+font-size: 14px;
+background: #e8ebed;
+color: #000;
+}
+h1 { color: #666;
+font-weight: normal;
+}
+h2 {
+color: #666;
+font-weight: normal;
+margin-top: 0;
+}
+h3 {
+color: #222;
+font-weight: normal;
+margin: 0 0 10px 0;
+}
+p, table, hr, .box { margin-bottom:25px; }
+.box p { margin-bottom:10px; }
+a { color: #F44; text-decoration: none !important; font-weight: bold;}
+a:hover { color: #c12525;}
+.row-body {
+border-bottom: 0;
+margin: 0 auto;
+width: 100%;
+max-width: 900px;
+overflow: auto;
+}
+.message-container {
+padding: 0 20px 10px 10px;
+}
+.message-form-content {
+box-shadow: 0px 1px 1px #CCC;
+border: 1px solid #BFBFBF;
+background: #FFF;
+color: #6B6B6B;
+border-radius: 3px;
+overflow: auto;
+}
+.message-inner {
+padding: 10px;
+overflow: auto;
+}
+.divider {
+height: 1px;
+width: 100%;
+background: #DEE0E3;
+float: left;
+}
+.logo {
+float: left;
+vertical-align: middle;
+line-height: 38px;
+font-size: 20px;
+font-weight: bold;
+}
+.doc-menu {
+float: right;
+margin: 10px 0;
+text-align: right;
+}
+.doc-menu a {
+font-weight: bold;
+margin-left: 20px;
+text-decoration: none;
+}
+.about {
+text-align: right;
+width: 100%;
+}
+.thank-you {
+margin: 10px;
+background: #DFDFDF;
+color: #5A5A5A;
+overflow: auto;
+float: left;
+padding: 10px;
+font-weight: bold;
+}
+.inner-inner {
+padding: 0 10px;
+}
+.developers-color {
+color: #F44;
+}
+</style>
+</head>
+
+<body id="top">
+<div class="row-body">
+<div class="message-container">
+<div class="message-form-content">
+<div class="message-inner">
+<a ><div class="logo">DIU-Insurance</div></a>
+<div class="doc-menu"><a href="#preparing">Preparing</a> <a href="#installation">Installation</a> <a href="#configuration">Configuration</a></div>
+</div>
+<div class="divider"></div>
+<div class="divider"></div>
+<div class="thank-you">If you have any questions that are beyond the scope of this documentation, please feel free to contact us trough <a>+25568993643</a>. WhatsApp only</div>
+<div class="divider"></div>
+<div class="message-inner">
+
+<h2 id="toc" class="alt">Table of Contents</h2>
+<ol class="alpha">
+<li><a href="#preparing">Preparing...</a></li>
+<li><a href="#installation">Installation process...</a></li>
+<li><a href="#configuration">Configuration process...</a></li>
+</ol>
+
+</div>
+<div class="divider"></div>
+<div class="message-inner">
+
+<h3 id="preparing"><strong>1. Preparing</strong> - <a href="#top">top</a></h3>
+Make sure you have the following:
+<ol>
+<li><strong>Apache 2</strong> or higher, with:
+<ul><li>mod_rewrite</li></ul>
+</li>
+<li><strong>PHP 8</strong> or higher, with:
+<ul><li>MySQLi</li></ul>
+</li>
+<li><strong>MySQL 7</strong> or higher</li>
+</ol>
+
+</div>
+<div class="divider"></div>
+<div class="message-inner">
+
+<h3 id="installation"><strong>2. Installation Process</strong> - <a href="#top">top</a></h3>
+<ol>
+<li>Import the <strong>database.SQL</strong> file from the "MySQL" folder into your MySQL database using the import function available in MySQL.</li>
+<li>
+With a text editor open the following file located inside the 'Script/db/' folder: <strong>config.php</strong>, and replace what's between the quotes (e.g: 'E-Insurance') with your MySQL settings:
+<pre>
+DEFINE('DBHost','localhost');
+DEFINE('DBUser', 'root');
+DEFINE('DBPass','');
+DEFINE('DBName','E-Insurance');
+</pre>
+</li>
+<li>
+Upload the files from the "Script" folder on the FTP server (usually <strong>public_html</strong> folder when installing it on a domain).
+</li>
+</ol>
+
+</div>
+<div class="divider"></div>
+<div class="message-inner">
+
+<h3 id="configuration"><strong>3. Configuration</strong> - <a href="#top">top</a></h3>
+
+The default login email for the Admin is "<strong>daffodil.insurance@gmail.com</strong>", and the password is "<strong>12345678</strong>" without quotes<br><br>
+
+
+</div>
+<div class="divider"></div>
+<div class="message-inner">
+
+
+
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
