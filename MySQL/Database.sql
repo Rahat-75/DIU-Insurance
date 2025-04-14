@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 13, 2025 at 08:26 PM
+-- Generation Time: Apr 14, 2025 at 08:48 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `e-insurance`
+-- Database: `diu-insurance`
 --
 
 -- --------------------------------------------------------
@@ -306,9 +306,10 @@ CREATE TABLE `tbl_insuarance_category` (
 --
 
 INSERT INTO `tbl_insuarance_category` (`id`, `name`, `status`) VALUES
-(7, 'Health', 1),
-(8, 'Car Insurance', 1),
-(9, 'Life', 1);
+(9, 'Life', 1),
+(11, 'General', 1),
+(12, 'Vehicle', 1),
+(16, 'Travel', 1);
 
 -- --------------------------------------------------------
 
@@ -332,8 +333,12 @@ CREATE TABLE `tbl_insuarance_policy` (
 --
 
 INSERT INTO `tbl_insuarance_policy` (`id`, `name`, `category`, `sub_category`, `sum_assured`, `premium`, `tenture`, `status`) VALUES
-(5, 'Year', 7, 13, 1500, 100, 10, 1),
-(6, 'Monthly', 8, 14, 50000, 1500, 100, 1);
+(7, 'Daffodil Basic Health Shield', 9, 13, 200000, 500, 60, 1),
+(8, 'Daffodil Family Protection Plan', 9, 13, 500000, 1200, 120, 1),
+(11, 'Fire Safety Guard', 11, 18, 1000000, 3000, 24, 1),
+(12, 'Daffodil Theft Shield', 11, 19, 300000, 800, 36, 1),
+(13, 'Daffodil Drive Safe Plan', 12, 20, 700000, 1500, 12, 1),
+(16, 'Daffodil EduTravel Insurance', 16, 25, 40000, 1200, 6, 1);
 
 -- --------------------------------------------------------
 
@@ -354,7 +359,11 @@ CREATE TABLE `tbl_insuarance_sub_category` (
 
 INSERT INTO `tbl_insuarance_sub_category` (`id`, `category`, `name`, `status`) VALUES
 (13, 9, 'Health', 1),
-(14, 8, 'Personal Car', 1);
+(15, 9, 'Family', 1),
+(18, 11, 'Property', 1),
+(19, 11, 'Theft', 1),
+(20, 12, 'Private Car', 1),
+(25, 16, 'Student', 1);
 
 -- --------------------------------------------------------
 
@@ -373,7 +382,7 @@ CREATE TABLE `tbl_login_sessions` (
 --
 
 INSERT INTO `tbl_login_sessions` (`sess_id`, `sess_ip`, `account`) VALUES
-('4ACL58EO3QW2A57WL045', '127.0.0.1', 1567);
+('KKV8IJPOS7TQNIB0DBFJ', '127.0.0.1', 1567);
 
 -- --------------------------------------------------------
 
@@ -397,7 +406,19 @@ INSERT INTO `tbl_notifications` (`id`, `user`, `notification`, `ticket`, `status
 (17, 750265, 'Your application for Year policy have been approved.', NULL, 0),
 (18, 982126, 'Your application for Monthly policy have been approved.', NULL, 1),
 (19, 982126, 'A staff was assigned on your ticket (982126-7), he/she will keep in touch with you shortly.', NULL, 1),
-(20, 750265, 'A remark was added on your ticket (750265-6)', 6, 0);
+(21, 982126, 'Your application for Daffodil Basic Health Shield policy have been approved.', NULL, 0),
+(22, 982126, 'Your application for Daffodil Basic Health Shield policy have been denied.', NULL, 0),
+(23, 982126, 'Your application for Daffodil Drive Safe Plan policy have been approved.', NULL, 0),
+(24, 750265, 'Your application for Daffodil Theft Shield policy have been approved.', NULL, 0),
+(25, 750265, 'Your application for Fire Safety Guard policy have been approved.', NULL, 0),
+(26, 982126, 'A staff was assigned on your ticket (982126-8), he/she will keep in touch with you shortly.', NULL, 0),
+(27, 982126, 'A remark was added on your ticket (982126-9)', 9, 0),
+(28, 750265, 'A staff was assigned on your ticket (750265-10), he/she will keep in touch with you shortly.', NULL, 0),
+(29, 750265, 'A staff was assigned on your ticket (750265-11), he/she will keep in touch with you shortly.', NULL, 0),
+(30, 733655, 'Your application for Daffodil Family Protection Plan policy have been approved.', NULL, 0),
+(34, 981046, 'Your application for Daffodil EduTravel Insurance policy have been approved.', NULL, 0),
+(35, 981046, 'Your application for Daffodil Basic Health Shield policy have been denied.', NULL, 0),
+(36, 981046, 'A staff was assigned on your ticket (981046-14), he/she will keep in touch with you shortly.', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -456,8 +477,14 @@ CREATE TABLE `tbl_policy_applications` (
 --
 
 INSERT INTO `tbl_policy_applications` (`id`, `member_id`, `policy_id`, `sum_assured`, `premium`, `tenture`, `active_date`, `approved_by`, `status`) VALUES
-(1744484354, 750265, 5, 1500, 100, 10, '2025-04-13', 1567, 1),
-(1744489520, 982126, 6, 50000, 1500, 100, '2025-04-13', 1567, 1);
+(1744608650, 982126, 7, 200000, 500, 60, '2025-04-14', 1567, 1),
+(1744608662, 982126, 7, 200000, 500, 60, '2025-04-14', NULL, 2),
+(1744608763, 982126, 13, 700000, 1500, 12, '2025-04-14', 1567, 1),
+(1744608837, 750265, 12, 300000, 800, 36, '2025-04-14', 1567, 1),
+(1744608841, 750265, 11, 1000000, 3000, 24, '2025-04-14', 1567, 1),
+(1744609174, 733655, 8, 500000, 1200, 120, '2025-04-14', 1567, 1),
+(1744612513, 981046, 16, 40000, 1200, 6, '2025-04-14', 1567, 1),
+(1744612517, 981046, 7, 200000, 500, 60, '2025-04-14', NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -504,8 +531,11 @@ CREATE TABLE `tbl_tickets` (
 --
 
 INSERT INTO `tbl_tickets` (`id`, `member_id`, `category`, `subject`, `ticket_description`, `open_date`, `assigned_to`, `close_date`, `status`, `remark`) VALUES
-(6, 750265, 4, 'Failed', 'The insurance aprooved?', '2025-04-13', NULL, '2025-04-13', 2, 'All ok now'),
-(7, 982126, 6, 'Approve Please', 'I have applied for car insurance', '2025-04-13', 9560, NULL, 1, NULL);
+(8, 982126, 10, 'For Approval', 'I have applied, now waiting for your response regarding approval.', '2025-04-14', 806, NULL, 1, NULL),
+(9, 982126, 14, 'For seeking more info & approval', 'I want to know more abouut this insurance anddd I have applied, now waiting for your response regarding approval.', '2025-04-14', NULL, '2025-04-14', 2, 'Sends info on your email and approval done.'),
+(10, 750265, 13, 'Regrading Approval', 'Waiting for your approval', '2025-04-14', 9560, NULL, 1, NULL),
+(11, 750265, 12, 'Seeking more info', 'Wanted to know the details of this insurance.', '2025-04-14', 806, NULL, 1, NULL),
+(14, 981046, 17, 'For Approval', 'I have applied for the insurance waiting for the approval', '2025-04-14', 8636, NULL, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -538,9 +568,13 @@ CREATE TABLE `tbl_ticket_categories` (
 --
 
 INSERT INTO `tbl_ticket_categories` (`id`, `name`, `status`) VALUES
-(4, 'Insurance', 1),
-(5, 'Health Insurance', 1),
-(6, 'Car Insurance', 1);
+(10, 'Daffodil Basic Health Shield', 1),
+(11, 'Daffodil Family Protection Plan', 1),
+(12, 'Fire Safety Guard', 1),
+(13, 'Daffodil Theft Shield', 1),
+(14, 'Daffodil Drive Safe Plan', 1),
+(15, 'Daffodil Insurance Policy', 1),
+(17, 'Daffodil EduTravel Insurance', 1);
 
 -- --------------------------------------------------------
 
@@ -1011,9 +1045,12 @@ CREATE TABLE `tbl_users` (
 INSERT INTO `tbl_users` (`id`, `first_name`, `last_name`, `gender`, `phone`, `city`, `street`, `email`, `login`, `level`, `status`) VALUES
 (806, 'Jamal', 'Rahman', 'Male', '01688651751', '-', '-', 'jamal@gmail.com', '$2y$10$5qMYsrjJ7Ltk6sWRG3U7GOU8ZrZmFUObF1ruxvjKZAvZxpsmQP8wC', 1, 1),
 (1567, 'Abdul Rabbi Rahat', 'Rahat', 'Male', '+8801977116695', 'Dhaka', 'Svar', 'daffodil.insurance@gmail.com', '$2y$10$p0GpDhTDjjU3mZWsZbznGuTYIbPrlvQscdha9IsoClk3wnUVWRLOC', 0, 1),
+(8636, 'Omar', 'Faruk', 'Male', '01978451585', '-', '-', 'omar@gmail.com', '$2y$10$C57zzS/43nKoi6eP7si16eBQ7mk.0iWl3Ow9zVN5krbcTo93yru.a', 1, 1),
 (9560, 'Rahim', 'Hasan', 'Male', '01856486182', '-', '-', 'rahim@gmail.com', '$2y$10$QlbBdXD9.fg3pGC2DjyE4OEbYDn0qiHjzKEGFJEmNtuJgtfOFJ5tG', 1, 1),
+(733655, 'Salim', 'Rahman', 'Male', '0131889468', 'Dhanmondi', '785', 'Salim@gmail.com', '$2y$10$JLx.avkAeTz5zT6sYXdDLeMK/ipwqwwZffro9ygUu.yS2A0lzV9i6', 2, 1),
 (750265, 'Karim', 'Hasan', 'Male', '0171498645', 'Dhaka', '1231', 'karim@gmail.com', '$2y$10$HFE0xgdAbx3nOPdJn1innOPpMmppyRtR6PGvQQGS35nTTkcjq0Wqy', 2, 1),
-(982126, 'Rabbi', 'Rahat', 'Male', '01718451561', 'Savar', '124', 'rahat@gmail.com', '$2y$10$rpWWZ0riuqUqkHB.I8hvYOUUpdl2fr./L1EX6xGPBPEdyHUgYW6H6', 2, 1);
+(981046, 'Faysal', 'Sakir', 'Male', '01515648956', 'Banani', '452', 'faysal@gmail.com', '$2y$10$Q2J18g44pEoStatq1VtNJ.0pYanOCI.TR6Lh3yhF82YX5pRF1mz1m', 2, 1),
+(982126, 'Rahat', 'Khan', 'Male', '01718451561', 'Savar', '124', 'rahat@gmail.com', '$2y$10$rpWWZ0riuqUqkHB.I8hvYOUUpdl2fr./L1EX6xGPBPEdyHUgYW6H6', 2, 1);
 
 --
 -- Indexes for dumped tables
@@ -1125,31 +1162,31 @@ ALTER TABLE `tbl_users`
 -- AUTO_INCREMENT for table `tbl_insuarance_category`
 --
 ALTER TABLE `tbl_insuarance_category`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `tbl_insuarance_policy`
 --
 ALTER TABLE `tbl_insuarance_policy`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tbl_insuarance_sub_category`
 --
 ALTER TABLE `tbl_insuarance_sub_category`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `tbl_notifications`
 --
 ALTER TABLE `tbl_notifications`
-  MODIFY `id` int(70) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(70) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `tbl_tickets`
 --
 ALTER TABLE `tbl_tickets`
-  MODIFY `id` int(70) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(70) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `tbl_tickets_replies`
@@ -1161,7 +1198,7 @@ ALTER TABLE `tbl_tickets_replies`
 -- AUTO_INCREMENT for table `tbl_ticket_categories`
 --
 ALTER TABLE `tbl_ticket_categories`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `tbl_timezones`
