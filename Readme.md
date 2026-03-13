@@ -1,4 +1,4 @@
-1. # DIU-Insurance
+# DIU-Insurance
 
 A simple web-based insurance management system built with PHP and MySQL.
 
